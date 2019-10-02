@@ -1,21 +1,43 @@
-
-
-
 .navbar-brand img{
     width: 120px;
     height: 120px;
-   
 }
 html {
     scroll-behavior: smooth;
     background-color: black;
 }
-section {
-    min-height: 100vh;
-    padding: 100px 0;
+#banner, #servicos, #sobre, #contato {
+    height:100vh;
+    padding: 140px 0;
 }
-
 .btn btn-primary {
     color: #536DFE;
+}
+section#assine {
+    background-color:#bdbdbd;
+    height: 150px;
+    padding: 220px
+}
+section#assine div.row{
+    position: relative;
+    top: 40%;
+}
+#cta {
+    height: 40px;
+    position:absolute;
+    padding-right: -100px;
+}
+#mail {
+    height: 40px;
+    width:600px;
+}
+#addon-wrapping {
+    font-size: 18px bold;
+}
 
+#btn-assine {
+    background-color: #536DFE;
+    width: 150px;
+    position: absolute;
+    margin-left: 120px;
 }
