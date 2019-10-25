@@ -72,7 +72,7 @@ if(isset($_POST['cadastrar_servico'])){
 
 
     if(file_exists($arquivoServicos)){
-
+        
     } else {
         $arquivo = fopen($arquivoServicos, 'w'); //abre ou cria o arquivo
         $arrayServicos = ["servicos" =>[]]; // cria arrray para guardar servico
