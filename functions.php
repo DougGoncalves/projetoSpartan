@@ -69,14 +69,36 @@ function getImagem($id)
 if(isset($_POST['cadastrar_servico'])){
 //     var_dump($_POST); 
     $arquivoServicos = 'servicos.json';
+    $imagemServico = '';
 
+    if($_FILES){
+        $nome = $_FILES['imagem']['name'];
+        $nomeTemp = $_FILES['imagem']['tmp_name'];
+        $erro = $_FILES['imagem']['error'];
+        $pastaRaiz = dirname(__FILE__);
+        $pasta = "servicos/";
+        $caminhoCompleto = $pastaRaiz . '/' . $pasta . $nome;
+    
+        if($erro == UPLOAD_ERR_OK){
+            move_uploaded_file($nomeTemp,$caminhoCompleto);
+            $imagemServico = $pasta . $nome;
+        }
+    }
+    
 
     if(file_exists($arquivoServicos)){
-        
+        $jsonServicos = file_get_contents($arquivoServicos);
+        $arrayServicos =json_decode ($jsonServicos, true);
+        $infoServico =$_POST;
+        $infoServico["imagem"] =$imagemServico;
+        $arrayServicos['servicos'][] = $infoServico;
+        $jsonServicos =json_encode($arrayServicos, true);
+        file_put_contents($arquivoServicos, $jsonServicos);
     } else {
         $arquivo = fopen($arquivoServicos, 'w'); //abre ou cria o arquivo
         $arrayServicos = ["servicos" =>[]]; // cria arrray para guardar servico
         $infoServico = $_POST; //pega informações do formulário de cadastro
+        $infoServico['imagem'] =$imagemServico;
         $arrayServicos['servicos'][]= $infoServico; //add novo servico no array
         $jsonServicos = json_encode($arrayServicos,true); //converte array para Json
         file_put_contents($arquivoServicos, $jsonServicos); //add info no arquivo

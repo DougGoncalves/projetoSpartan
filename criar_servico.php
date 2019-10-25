@@ -20,7 +20,7 @@
                     </div>   
                     <div class="form-group"> 
                         <label for="imagem">Imagem</label><br>
-                        <input type="file" name="form-control" id="imagem" name='imagem'>
+                        <input type="file" name="imagem" id="imagem" class="form-control">
                     </div> 
                     <div class="form-group text-right">
                         <button class="btn btn-primary" name="cadastrar_servico">Enviar</button>      
