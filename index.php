@@ -1,5 +1,5 @@
 <?php require_once('header.php'); ?>
-
+<main class="mainhome">
     <section id="banner">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -94,4 +94,5 @@
             </div>
         </div>
     </section>
+</main>
     <?php require_once('footer.php');?>

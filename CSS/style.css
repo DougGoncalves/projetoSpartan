@@ -16,7 +16,8 @@ html {
 section#assine {
     background-color:#bdbdbd;
     height: 150px;
-    padding: 220px
+    margin-top: 230px;
+    padding: 140px
 }
 section#assine div.row{
     position: relative;
@@ -40,4 +41,24 @@ section#assine div.row{
     width: 150px;
     position: absolute;
     margin-left: 120px;
+}
+footer{
+    height: 40px;
+}
+.ilustra-servico{
+    max-width: 100%;
+    width: 350px;
+}
+.mainhome{
+    margin-top:-140px;
+}
+#imagemadmin{
+    width:100px;
+}
+table tr td:last-child{
+    width: 200px;
+}
+#imagemcriar_servico{
+    width: 75%;
+    margin-left: 20%;
 }
