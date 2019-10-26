@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
 //  $servicos = [
 // //      [
 // //          "nome" => "Desenvolvimento Web",
@@ -33,21 +34,21 @@
 // //      ]
 // //  ];
 
- function listarServicos()
- {
-     global $servicos;
+//  function listarServicos()
+//  {
+//      global $servicos;
 
-     foreach ($servicos as $index => $servico) {
-         echo "<div class='col-md-4 mt-4'>
-             <div class='card'>
-                 <img class='card-img-top p-4' src='$servico[imagem]' alt='Imagem de capa do card'>
-                 <div class='card-body'>
-                     <p class='card-text text-center'><a href='servico.php?id=$index'>$servico[nome]</a></p>
-                 </div>
-             </div>
-         </div>";
-     }
- }
+//      foreach ($servicos as $index => $servico) {
+//          echo "<div class='col-md-4 mt-4'>
+//              <div class='card'>
+//                  <img class='card-img-top p-4' src='$servico[imagem]' alt='Imagem de capa do card'>
+//                  <div class='card-body'>
+//                      <p class='card-text text-center'><a href='servico.php?id=$index'>$servico[nome]</a></p>
+//                  </div>
+//              </div>
+//          </div>";
+//      }
+//  }
 
 
  function getNome($id)
@@ -103,4 +104,47 @@ if(isset($_POST['cadastrar_servico'])){
         $jsonServicos = json_encode($arrayServicos,true); //converte array para Json
         file_put_contents($arquivoServicos, $jsonServicos); //add info no arquivo
     }
+}
+
+function listarServicos(){
+    $arquivoJson = 'servicos.json';
+
+    $servicos = [];
+
+    if(file_exists($arquivoJson)){
+        $jsonServicos = file_get_contents($arquivoJson);
+        $arrayServicos = json_decode($jsonServicos, true);
+
+        $servicos = $arrayServicos['servicos'];
+    }
+
+    return $servicos;
+}
+
+// echo"<pre>";
+// var_dump(listarServicos());
+
+if(isset($_POST['login'])){
+
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $senha = isset($_POST['senha']) ? $_POST['senha'] : '';
+
+    if($email == ''|| $senha == '') {
+        $erro = "Preencha os campos corretamente";
+    } else {
+
+        unset($erro);
+        $_SESSION['logado'] = true;
+        if(isset($_POST['manter_logado'])){
+            setcookie('email', $email, time()+3600, '/');
+            setcookie('senha', $senha, time()+3600, '/');
+        }
+
+        header('Location: index.php');
+
+    }
+}
+
+if(isset($_GET['logout'])){
+    session_destroy();
 }

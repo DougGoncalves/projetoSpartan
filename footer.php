@@ -1,5 +1,7 @@
 <footer class="text-center">
-        <p>Agência Spartan &copy; 2019</p>
+        <a href="index.php" style="text-decoration: none; background:grey;">
+                <p>Agência Spartan &copy; 2019</p>
+        </a>
 </footer>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

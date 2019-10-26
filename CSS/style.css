@@ -55,10 +55,17 @@ footer{
 #imagemadmin{
     width:100px;
 }
+.table{
+    width: 100%;
+}
 table tr td:last-child{
     width: 200px;
 }
 #imagemcriar_servico{
     width: 75%;
     margin-left: 20%;
+}
+#imglogin{
+    margin-top: 20px;
+    width: 400px;
 }

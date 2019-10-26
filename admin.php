@@ -1,4 +1,10 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+if (!isset($_SESSION['logado'])) {
+    header('Location:login.php');
+}
+
+?>
 <main>
     <div class="container my-5">
         <div class="row">
@@ -18,15 +24,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Consultoria UX</td>
-                            <td>Aqui vem a descrição</td>
-                            <td><img src="Imagens/marketing.svg" alt="consultoria" id=imagemadmin></td>
-                            <td>
-                                <a href="#" class="btn btn-info"></a>
-                                <a href="#" class="btn btn-danger"></a>
-                            </td>
-                        </tr>
+                        <?php
+                            $servicos = listarServicos ();
+
+                            if(count($servicos)>0){
+                                foreach ($servicos as $indice => $valor) {
+                                    echo' <tr>
+                                    <td>'.$servicos[$indice]["nome"].'</td>
+                                    <td>'.$servicos[$indice]["descricao"].'</td>
+                                    <td><img src="'.$servicos[$indice]["imagem"]. '"alt="consultoria" id=imagemadmin></td>
+                                    <td>
+                                        <a href="#" class="btn btn-info">Editar</a>
+                                        <a href="#" class="btn btn-danger">Excluir</a>
+                                    </td>
+                                </tr>';
+                                }
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
