@@ -44,6 +44,7 @@ section#assine div.row{
 }
 footer{
     height: 40px;
+    bottom: 0px;
 }
 .ilustra-servico{
     max-width: 100%;
