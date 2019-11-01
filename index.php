@@ -33,15 +33,18 @@
             <div class="row">
             <?php
                 $servicos = listarServicos ();
-                  // foreach ($servicos as $indice => $valor) {
-                  //   echo "<div class='col-md-4 mt-4'>
-                  //           <div class='card'>
-                  //             <img class='card-img-top p-4' src='$servicos[$indice]['imagem']' alt='Imagem de capa do card'> 
-                  //               <div class='card-body'>
-                  //                 <p class='card-text text-center'><a href='$servicos[$indice]['nome']</a></p>
-                  //               </div>
-                  //           </div>
-                  //         </div>";
+
+                foreach ($servicos as $indice => $valor) {
+                  echo "<div class='col-md-4 mt-4'>
+                  <div class='card'>
+                  <img class='card-img-top p-4' src='.$servicos[$indice][imagem].' alt='Ilustracao_servicos'>
+                             <div class='card-body'>
+                                 <p class='card-text text-center'><a href='servico.php?id=$indice'>$servicos[$indice][nome]</a></p>
+                             </div>
+                         </div>
+                     </div>";
+                    }  
+  
             ?>
             </div>
         </div>
