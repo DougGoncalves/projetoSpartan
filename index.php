@@ -36,15 +36,15 @@
 
                 foreach ($servicos as $indice => $valor) {
                   echo "<div class='col-md-4 mt-4'>
-                  <div class='card'>
-                  <img class='card-img-top p-4' src='.$servicos[$indice][imagem].' alt='Ilustracao_servicos'>
-                             <div class='card-body'>
-                                 <p class='card-text text-center'><a href='servico.php?id=$indice'>$servicos[$indice][nome]</a></p>
-                             </div>
-                         </div>
-                     </div>";
+                          <div class='card'>
+                            <div class='card-ilustra' style='background-image: url(".
+                            $servicos[$indice]['imagem'].")'></div>
+                              <div class='card-body'>
+                                  <p class='card-text text-center'><a href='servico.php?id=$indice'>".$servicos[$indice]['nome']."</a></p>
+                              </div>
+                          </div>
+                        </div>";
                     }  
-  
             ?>
             </div>
         </div>
